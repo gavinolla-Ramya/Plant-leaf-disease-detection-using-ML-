@@ -1,0 +1,134 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <link rel="stylesheet" href="https://www.w3schools.com/w3css/4/w3.css">
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Raleway">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+  <style>
+    body {
+       background-color: white;
+
+    }
+    body, h1 {font-family: "Raleway", Arial, sans-serif}
+    h1 {letter-spacing: 6px}
+    .w3-row-padding img {margin-bottom: 12px}
+    #header {
+      float: left;
+      margin-left: 100px;
+    }
+    form {border: 3px solid #f1f1f1;}
+    input[type=text], input[type=password] {
+      width: 100%;
+      padding: 12px 20px;
+      margin: 8px 0;
+      display: inline-block;
+      border: 1px solid #ccc;
+      box-sizing: border-box;
+    }
+    button {
+      background-color: #4CAF50;
+      color: white;
+      padding: 14px 20px;
+      margin: 8px 0;
+      border: none;
+      cursor: pointer;
+      width: 100%;
+    }
+    button:hover {
+      opacity: 0.8;
+    }
+    .cancelbtn {
+      width: auto;
+      padding: 10px 18px;
+      background-color: #f44336;
+    }
+    .imgcontainer {
+      text-align: center;
+      margin: 24px 0 12px 0;
+    }
+    img.avatar {
+      width: 40%;
+      border-radius: 50%;
+    }
+    .container {
+      padding: 16px;
+    }
+    span.psw {
+      float: right;
+      padding-top: 16px;
+    }
+    @media screen and (max-width: 300px) {
+      span.psw {
+        display: block;
+        float: none;
+      }
+      .cancelbtn {
+        width: 100%;
+      }
+    }
+  </style>
+</head>
+<body class="w3-content">
+  <header class="w3-panel w3-center w3-opacity" style="padding:2px 16px">
+    <a href="/" class="w3-bar-item w3-button">Plant Disease Prediction</a>
+    <div class="w3-padding-32">
+      <div class="w3-bar w3-border">
+        <h1 class="w3-xlarge">Login Form</h1>
+      </div>
+    </div>
+  </header>
+
+  <form method="POST" action="/signin">
+    <div class="imgcontainer">
+      <img src="{{ url_for('static', filename='img_avatar2.png') }}" alt="Avatar" class="avatar">
+    </div>
+
+    <div class="container">
+      <label><b>Mail Id</b></label>
+      <input type="text" placeholder="Enter Mail Id" name="uname" required>
+
+      <label><b>Password</b></label>
+      <input type="password" placeholder="Enter Password" name="psw" required>
+          
+      <button type="submit">Login</button>
+      <label>
+        <input type="checkbox" checked="checked" name="remember"> Remember me
+      </label>
+    </div>
+
+    <div class="container" style="background-color:#f1f1f1">
+      <button type="button" class="cancelbtn">Cancel</button>
+      <span class="psw">Forgot <a href="#">password?</a></span>
+    </div>
+    <div class="container signin">
+      <p>Register here! <a href="/register">Sign Up</a>.</p>
+    </div>
+  </form>
+
+  <footer style="margin-left: 50%; margin-top: 5%;">copy@Right
+  </footer>
+  <script>
+    // Prevent the arrow keys from navigating back or forward
+    document.addEventListener('keydown', function(event) {
+        if (event.key === 'ArrowLeft' || event.key === 'ArrowRight') {
+            event.preventDefault(); // This will stop the page from navigating with the arrow keys
+        }
+    });
+    window.onload = function () {
+        history.pushState(null, null, location.href);
+        window.onpopstate = function () {
+            history.pushState(null, null, location.href);
+        };
+    };
+    window.onbeforeunload = null;
+
+    // Allow form submission to clear the warning
+    document.querySelector('form').addEventListener('submit', function () {
+        window.onbeforeunload = null;
+    });
+    
+    
+</script>
+</body>
+</html>

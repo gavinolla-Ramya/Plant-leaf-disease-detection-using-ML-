@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" />
+    <title>Classification</title>
+    <style>
+        body {
+            min-height: 100vh; /* Full height of the viewport */
+            margin: 0; /* Remove default body margin */
+            background-image: url("{{url_for('static', filename='istockphoto-668288668-612x612.jpg') }}");
+            background-size: cover;
+            background-repeat: no-repeat;
+            background-position: center;
+        }
+    </style>
+</head>
+<body>
+    <div class="wrap">
+        <header id="header">
+            <div class="container-fluid">
+                <div class="col-md-12">
+                    <a href="/login" class="btn btn-light">Logout</a>
+                </div>
+            </div>
+        </header>
+    </div>
+
+    <div id="maintext" style="position: absolute; margin: auto; width: 700px; height: 200px; text-align: center; top: 0; bottom: 0; left: 0; right: 0;">
+        <h1 class="text-light mb-2">Upload your image to be classified!</h1>
+        <h4 class="text-light mb-5">(Please upload images less than 500kb in size)</h4>
+        <form enctype="multipart/form-data" action="/predict2" method="post">
+            <p class="text-dark">
+                <input type="file" name="file" />
+                <input type="submit" value="Upload" />
+            </p>
+        </form>
+    </div>
+
+    <!-- JS Scripts -->
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.2/jquery.min.js"></script>
+    <!-- <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js"></script> -->
+
+    <script src="static/assets/js/vendor/bootstrap.min.js"></script>
+</body>
+</html>
